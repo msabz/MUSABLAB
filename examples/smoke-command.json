@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "commandId": "smoke-001",
+  "sessionId": "smoke-001",
+  "kind": "test_installed",
+  "package": "com.directchat",
+  "plan": {
+    "schema": 1,
+    "name": "launch-smoke",
+    "package": "com.directchat",
+    "video": "off",
+    "steps": [
+      { "id": "clear", "action": "clear_logcat" },
+      { "id": "launch", "action": "launch" },
+      { "id": "ready", "action": "wait_process", "args": { "timeoutMs": 8000 } },
+      {
+        "id": "proof",
+        "type": "parallel",
+        "branches": [
+          [ { "id": "ui", "action": "capture_ui" } ],
+          [ { "id": "screen", "action": "capture_screenshot" } ],
+          [ { "id": "perf", "action": "capture_meminfo" } ]
+        ]
+      },
+      { "id": "bundle", "action": "capture_bundle" }
+    ]
+  }
+}
