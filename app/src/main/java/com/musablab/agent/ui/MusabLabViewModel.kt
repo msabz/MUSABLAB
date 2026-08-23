@@ -1,6 +1,9 @@
 package com.musablab.agent.ui
 
 import android.app.Application
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.musablab.agent.BuildConfig
@@ -24,7 +27,7 @@ data class UiState(
 
 class MusabLabViewModel(app: Application) : AndroidViewModel(app) {
     private val tokenStore = SecureTokenStore(app)
-    var state by androidx.compose.runtime.mutableStateOf(UiState(deviceId = DeviceIdentity.id(app)))
+    var state by mutableStateOf(UiState(deviceId = DeviceIdentity.id(app)))
         private set
 
     init {
