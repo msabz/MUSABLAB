@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MUSABLAB device command",
+  "type": "object",
+  "required": ["schema", "commandId", "package", "plan"],
+  "properties": {
+    "schema": { "const": 1 },
+    "commandId": { "type": ["string", "null"] },
+    "sessionId": { "type": "string" },
+    "kind": { "enum": ["test_installed", "test_artifact"] },
+    "package": { "type": "string" },
+    "installMode": { "enum": ["update", "fresh"] },
+    "source": {
+      "type": "object",
+      "properties": {
+        "repo": { "type": "string" },
+        "artifactId": { "type": "integer" },
+        "runId": { "type": "integer" },
+        "commitSha": { "type": "string" }
+      }
+    },
+    "plan": { "type": "object" }
+  }
+}
