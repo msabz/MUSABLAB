@@ -10,7 +10,7 @@ val controlRepo = providers.gradleProperty("MUSABLAB_CONTROL_REPO")
 
 android {
     namespace = "com.musablab.agent"
-    compileSdk = 37
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.musablab.agent"
